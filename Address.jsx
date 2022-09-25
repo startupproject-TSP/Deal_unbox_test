@@ -36,7 +36,8 @@ export default function Address() {
           const orderRef = collection(db, "order_details");
           const u = query(orderRef,orderBy('order_id', "desc"),limit(1));
           var a=u+1
-          const selectedValue = document.getElementById('Address').value;
+//           const selectedValue = document.getElementById('Address').value;
+          console.log(document.getElementById('Address').value);
 
           navigate('/Payment')
           console.log(selectedValue)
@@ -65,9 +66,12 @@ export default function Address() {
                   
                 <div className='border mt-3 p-3 bg-light' key={Uid} >
                            <input
+//                             here, 3 items has id="Address"
                            id='Address'
           
-                          value={(Add_1,Add_2,Add_3,Add_4,Pincode,MobileNum)}
+//                           value={(Add_1,Add_2,Add_3,Add_4,Pincode,MobileNum)}
+//                             do this instead:
+                            value={[Add_1,Add_2,Add_3,Add_4,Pincode,MobileNum]}
                           name="Address"
                           type="radio"
                           onChange={handleChange}/>
